@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мемоліум Київ - Памятники, Гранітні вироби, Огради</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <a href="#home" class="logo">
+                <span>🏛️</span>
+                <span>Мемоліум</span>
+                <span class="logo-subtitle">Київ</span>
+            </a>
+            <nav>
+                <a href="#portfolio" data-section="portfolio">Портфоліо</a>
+                <a href="#monuments" data-section="monuments">Памятники</a>
+                <a href="#cemeteries" data-section="cemeteries">Кладовища</a>
+                <a href="#granite" data-section="granite">Гранітні вироби</a>
+                <a href="#contact" data-section="contact" class="btn-contact">Замовити</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero/Banner Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Памятники та Гранітні вироби Київу</h1>
+            <p>Надаємо послуги з благоустрою та виготовлення памятників</p>
+            <p>Більше 20 років досвіду | Більше 5000 задоволених клієнтів</p>
+            <button class="btn btn-primary btn-lg" onclick="document.getElementById('monuments-section').scrollIntoView({behavior: 'smooth'})">Дізнатися більше</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- ========== PORTFOLIO SECTION ========== -->
+        <section id="portfolio-section" class="section featured">
+            <h2 class="section-title">🖼️ Портфоліо наших робіт</h2>
+            <p class="section-subtitle">Приклади паматників та благоустрою, виготовлені нашою командою</p>
+            <div class="portfolio-grid" id="portfolioGrid"></div>
+        </section>
+
+        <!-- ========== MONUMENT TYPES ========== -->
+        <section id="monuments-section" class="section">
+            <h2 class="section-title">⚰️ Типи паматників</h2>
+            <p class="section-subtitle">Виберіть тип паматника, який вам подобається</p>
+            <div class="monuments-grid" id="monumentTypesGrid"></div>
+        </section>
+
+        <!-- ========= CEMETERIES SECTION ========== -->
+        <section id="cemeteries-section" class="section">
+            <h2 class="section-title">🗺️ Кладовища Київу</h2>
+            <p class="section-subtitle">Ми працюємо на всіх головних кладовищах міста</p>
+            <div class="cemeteries-grid" id="cemeteriesGrid"></div>
+        </section>
+
+        <!-- ========== SERVICES SECTION ========== -->
+        <section class="section services-section">
+            <h2 class="section-title">📋 Наші послуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏛️</div>
+                    <h3>Виготовлення паматників</h3>
+                    <p>Виготовляємо памятники з найвищої якості гранітних матеріалів</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Монтаж та установка</h3>
+                    <p>Професійна установка фундаменту та монтаж паматника</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪨</div>
+                    <h3>Гранітні вироби</h3>
+                    <p>Стільниці, підвіконники, огради та інші вироби з гранітуу</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💎</div>
+                    <h3>Премієм оздоблення</h3>
+                    <p>Портретні медальйони, письмо, золочення та інші послуги</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Доставка</h3>
+                    <p>Безопечна доставка паматників на кладовище</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Ремонт та реставрація</h3>
+                    <p>Ремонт та реставрація старих паматників</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CALCULATOR SECTION ========== -->
+        <section id="calculator-section" class="section calculator-section">
+            <h2 class="section-title">💰 Калькулятор паматника</h2>
+            <div class="calculator-container">
+                <div class="calc-block">
+                    <h3>🏛️ Паматник</h3>
+                    <div class="form-group">
+                        <label for="calcMaterial">Матеріал</label>
+                        <select id="calcMaterial" onchange="updateCalculator()">
+                            <option value="granite">Граніт - 50 000 грн</option>
+                            <option value="marble">Мрамур - 55 000 грн</option>
+                            <option value="premium">Преміум - 70 000 грн</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="calcHeight">Висота (см)</label>
+                            <input type="number" id="calcHeight" min="50" max="400" value="200" onchange="updateCalculator()">
+                        </div>
+                        <div class="form-group">
+                            <label for="calcWidth">Ширина (см)</label>
+                            <input type="number" id="calcWidth" min="30" max="300" value="100" onchange="updateCalculator()">
+                        </div>
+                    </div>
+                    <div class="price-display">
+                        Стоимость паматника: <span id="calcMonumentPrice" class="price-value">50 000 грн</span>
+                    </div>
+                </div>
+
+                <div class="calc-block">
+                    <h3>🚪 Ограда на гробницю</h3>
+                    <div class="form-group">
+                        <label for="calcFenceType">Тип огради</label>
+                        <select id="calcFenceType" onchange="updateCalculator()">
+                            <option value="metal">Металева - 800 грн/м</option>
+                            <option value="forging">Кована - 1 200 грн/м</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="calcFenceLength">Довжина (м)</label>
+                            <input type="number" id="calcFenceLength" min="0" max="50" value="6" step="0.5" onchange="updateCalculator()">
+                        </div>
+                        <div class="form-group">
+                            <label for="calcFenceWidth">Ширина (м)</label>
+                            <input type="number" id="calcFenceWidth" min="0" max="50" value="4" step="0.5" onchange="updateCalculator()">
+                        </div>
+                    </div>
+                    <div class="price-display">
+                        Стоимість огради: <span id="calcFencePrice" class="price-value">0 грн</span>
+                    </div>
+                </div>
+
+                <div class="calc-block">
+                    <h3>🕯️ Лампадки</h3>
+                    <div class="form-group">
+                        <label for="calcLamps">Кількість</label>
+                        <select id="calcLamps" onchange="updateCalculator()">
+                            <option value="0">Без лампадок</option>
+                            <option value="2">2 штуки - 5 000 грн</option>
+                            <option value="4">4 штуки - 10 000 грн</option>
+                            <option value="6">6 штук - 15 000 грн</option>
+                        </select>
+                    </div>
+                    <div class="price-display">
+                        Стоимість лампадок: <span id="calcLampsPrice" class="price-value">0 грн</span>
+                    </div>
+                </div>
+
+                <div class="calc-summary">
+                    <h3>📊 Загальна вартість проекту</h3>
+                    <div class="summary-breakdown">
+                        <div class="summary-row">
+                            <span>Паматник:</span>
+                            <span id="summaryMonument">50 000 грн</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Ограда:</span>
+                            <span id="summaryFence">0 грн</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Лампадки:</span>
+                            <span id="summaryLamps">0 грн</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Всього:</span>
+                            <span id="summaryTotal" class="total-price">50 000 грн</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-full" onclick="showContactForm()">Замовити!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== GRANITE PRODUCTS SECTION ========== -->
+        <section id="granite-section" class="section">
+            <h2 class="section-title">🪨 Гранітні вироби</h2>
+            <p class="section-subtitle">Стільниці, підвіконники, плитка та інші вироби</p>
+            <div class="granite-products">
+                <div class="granite-calc">
+                    <h3>Розрахунок вартості гранітних виробів</h3>
+                    <div class="form-group">
+                        <label for="graniteProductType">Тип виробу</label>
+                        <select id="graniteProductType" onchange="updateGraniteCalc()">
+                            <option value="countertop">Стільниця</option>
+                            <option value="windowsill">Підвіконник</option>
+                            <option value="tile">Плитка</option>
+                            <option value="other">Інший виріб</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="graniteMatType">Матеріал</label>
+                        <select id="graniteMatType" onchange="updateGraniteCalc()">
+                            <option value="polished">Полірований - 150 грн/м²</option>
+                            <option value="flamed">Пальний - 140 грн/м²</option>
+                            <option value="honed">Хопірований - 155 грн/м²</option>
+                            <option value="bushered">Бушерований - 145 грн/м²</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="graniteL">Довжина (см)</label>
+                            < input type="number" id="graniteL" min="10" max="500" value="100" onchange="updateGraniteCalc()">
+                        </div>
+                        <div class="form-group">
+                            <label for="graniteW">Ширина (см)</label>
+                            <input type="number" id="graniteW" min="10" max="500" value="50" onchange="updateGraniteCalc()">
+                        </div>
+                    </div>
+                    <div class="price-display">
+                        Вартість: <span id="graniteProductPrice" class="price-value">7 500 грн</span>
+                    </div>
+                    <button class="btn btn-secondary btn-full" onclick="showContactForm()">Замовити</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT SECTION ========== -->
+        <section id="contact-section" class="section contact-section">
+            <h2 class="section-title">📞 Зв'яжіться з нами</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>☎️ Телефон</h3>
+                    <p><a href="tel:+380971234567">+38 (097) 123-45-67</a></p>
+                    <p><a href="tel:+380501234567">+38 (050) 123-45-67</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>📍 Адреса</h3>
+                    <p>вул. Гранітна, 15, Київ</p>
+                    <p>Офіс на Лівобережі</p>
+                </div>
+                <div class="contact-item">
+                    <h3>⏰ Режим роботи</h3>
+                    <p>Пн-Пт: 9:00 - 18:00</p>
+                    <p>Сб-Нд: 10:00 - 16:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeContactForm()">&times;</span>
+            <div class="modal-header">📋 Замовити послугу</div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Ваше ім'я *</label>
+                    <input type="text" id="contactName" required placeholder="Іван Петров">
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">Телефон *</label>
+                    <input type="tel" id="contactPhone" required placeholder="+38 (097) 123-45-67">
+                </div>
+                <div class="form-group">
+                    <label for="contactComment">Коментар</label>
+                    <textarea id="contactComment" placeholder="Розкажіть про ваші потреби..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-success btn-full">Відправити замовлення</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Мемоліум Київ - Памятники та гранітні вироби</p>
+        <p>Все розраховується приблизно і потребує уточнення з менеджером</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
